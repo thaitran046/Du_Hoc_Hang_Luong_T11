@@ -162,9 +162,20 @@ function trackMeta(event, params = {}) {
     const allowedCustomEvents = [
       'landing_page_view',
       'engaged_session',
+
+      // Registration funnel
+      'view_form',
+      'start_form',
       'form_step_1',
-      'select_event_location',
+      'form_step_2',
       'submit_form',
+
+      // Event attendance funnel
+      'confirm_attendance',
+      'event_checkin',
+
+      // Other events
+      'select_event_location',
       'thank_you_view',
       'form_error'
     ];

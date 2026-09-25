@@ -1,5 +1,6 @@
 import React, {
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import {
@@ -219,6 +220,62 @@ export default function LeadForm({
   });
 
   const utm = useUtm();
+  const formRef = useRef(null);
+  const hasViewedForm = useRef(false);
+  const hasStartedForm = useRef(false);
+
+  useEffect(() => {
+    const element = formRef.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (
+          entry.isIntersecting &&
+          !hasViewedForm.current
+        ) {
+          hasViewedForm.current = true;
+
+          track('view_form', {
+            form_name:
+              'education_fair_registration',
+          });
+
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  
+  const handleFormStart = () => {
+    if (hasStartedForm.current) {
+      return;
+    }
+
+    hasStartedForm.current = true;
+
+    track('start_form', {
+      form_name:
+        'education_fair_registration',
+      step,
+    });
+  };
+
+
+
 
   // Tìm event theo ID
   const findEvent = (eventId) => {
@@ -415,6 +472,16 @@ export default function LeadForm({
       return;
     }
 
+    // TRACK: Hoàn thành bước 2
+    track('form_step_2', {
+      form_name: 'education_fair_registration',
+      country: formData.country,
+      timeframe: formData.timeframe,
+      event_id: selectedEvent?.id || '',
+      event_location: selectedEvent?.location || '',
+      needs_count: formData.needs.length,
+    });
+
     setIsSubmitting(true);
     try {
       const finalData = {
@@ -579,7 +646,10 @@ export default function LeadForm({
       </div>
 
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
+        onFocusCapture={handleFormStart}
+        onClickCapture={handleFormStart}
         className="p-6 md:p-8"
       >
         <AnimatePresence

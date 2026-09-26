@@ -7,69 +7,10 @@ import {
 } from 'lucide-react';
 
 import { track } from '../lib/tracking';
-
-// ======================================
-// DANH SÁCH EDUCATION FAIR
-// ======================================
-
-export const FAIR_EVENTS = [
-  {
-    id: 'robin-hotel',
-
-    date: '24/09/2026',
-
-    day: '24',
-
-    month: 'THÁNG 9',
-
-    location: 'Đắk Nông',
-
-    venue: 'Robin Hotel',
-
-    address:
-      '77, Đường 23 Tháng 3, Tổ 1, Nam Gia Nghĩa, Lâm Đồng 65106',
-
-    time: '13:00 – 17:00',
-  },
-
-  {
-    id: 'bao-loc',
-
-    date: '26/09/2026',
-
-    day: '26',
-
-    month: 'THÁNG 9',
-
-    location: 'TP. Bảo Lộc',
-
-    venue: 'Phạm Garden Coffee',
-
-    address:
-      '39 Nguyễn Bỉnh Khiêm, Phường 2, Bảo Lộc, Lâm Đồng',
-
-    time: '13:00 – 17:00',
-  },
-
-  {
-    id: 'da-lat',
-
-    date: '27/09/2026',
-
-    day: '27',
-
-    month: 'THÁNG 9',
-
-    location: 'TP. Đà Lạt',
-
-    venue: 'Nesta Valley Hotel',
-
-    address:
-      '94 Đường Bùi Thị Xuân, Xuân Hương - Đà Lạt, Lâm Đồng',
-
-    time: '13:00 – 17:00',
-  },
-];
+import {
+  NOVEMBER_EVENTS,
+  SEPTEMBER_PAST_EVENTS,
+} from '../lib/fair-events';
 
 // ======================================
 // EVENTS COMPONENT
@@ -159,13 +100,17 @@ export default function Events() {
             phù hợp với bạn.
           </p>
 
+          <p className="mt-3 text-sm leading-6 text-amber-800">
+            Ngày, giờ, địa điểm và địa chỉ tháng 11 đang là dữ liệu tạm phục vụ phát triển giao diện; venue và địa chỉ chưa được xác nhận.
+          </p>
+
         </div>
 
         {/* EVENT CARDS */}
 
         <div className="grid gap-6 md:grid-cols-3">
 
-          {FAIR_EVENTS.map(
+          {NOVEMBER_EVENTS.map(
             (event) => (
               <article
                 key={event.id}
@@ -275,6 +220,15 @@ export default function Events() {
             )
           )}
 
+        </div>
+
+        <div className="mt-12 border-t border-slate-200 pt-8 text-center">
+          <p className="font-bold text-slate-900">
+            Education Fair tháng 9 đã đi qua
+          </p>
+          <p className="mt-2 text-slate-600">
+            {SEPTEMBER_PAST_EVENTS.map((event) => event.location).join(' • ')}
+          </p>
         </div>
 
       </div>

@@ -26,6 +26,7 @@ import {
   getAttribution,
   track,
 } from '../lib/tracking';
+import { NOVEMBER_EVENTS } from '../lib/fair-events';
 
 // ======================================================
 // ĐỐI TƯỢNG
@@ -105,39 +106,6 @@ const assistance = [
   'Chi phí',
   'Hướng nghiệp',
   'Lộ trình du học',
-];
-
-// ======================================================
-// EDUCATION FAIR EVENTS
-// ======================================================
-const EVENTS = [
-  {
-    id: 'dak-nong',
-    location: 'Đắk Nông',
-    venue: 'Robin Hotel',
-    address:
-      '77, Đường 23 Tháng 3, Tổ 1, Nam Gia Nghĩa, Lâm Đồng 65106',
-    date: '24/09/2026',
-    time: '13:00 – 17:00',
-  },
-  {
-    id: 'bao-loc',
-    location: 'TP. Bảo Lộc',
-    venue: 'Pham Garden Coffee',
-    address:
-      '39 Nguyễn Bỉnh Khiêm, Phường 2, Bảo Lộc, Lâm Đồng',
-    date: '26/09/2026',
-    time: '13:00 – 17:00',
-  },
-  {
-    id: 'da-lat',
-    location: 'TP. Đà Lạt',
-    venue: 'Nesta Valley Hotel',
-    address:
-      '94 Đường Bùi Thị Xuân, Xuân Hương - Đà Lạt, Lâm Đồng',
-    date: '27/09/2026',
-    time: '13:00 – 17:00',
-  },
 ];
 
 // ======================================================
@@ -279,7 +247,7 @@ export default function LeadForm({
 
   // Tìm event theo ID
   const findEvent = (eventId) => {
-    return EVENTS.find(
+    return NOVEMBER_EVENTS.find(
       (event) =>
         event.id === eventId
     );
@@ -334,22 +302,28 @@ export default function LeadForm({
           findEvent(
             parsedEvent?.id
           );
-        const eventToUse =
-          matchedEvent ||
-          parsedEvent;
-        setSelectedEvent(
-          eventToUse
-        );
-        setFormData((prev) => ({
-          ...prev,
-          location:
-            eventToUse?.location ||
-            '',
-        }));
+        if (matchedEvent) {
+          setSelectedEvent(matchedEvent);
+          setFormData((prev) => ({
+            ...prev,
+            location: matchedEvent.location,
+          }));
+          localStorage.setItem(
+            'selectedFairEvent',
+            JSON.stringify(matchedEvent)
+          );
+        } else {
+          localStorage.removeItem(
+            'selectedFairEvent'
+          );
+        }
       } catch (error) {
         console.error(
           'Không đọc được selectedFairEvent:',
           error
+        );
+        localStorage.removeItem(
+          'selectedFairEvent'
         );
       }
     }
@@ -366,18 +340,28 @@ export default function LeadForm({
         findEvent(
           incomingEvent?.id
         );
-      const eventToUse =
-        matchedEvent ||
-        incomingEvent;
+      if (!matchedEvent) {
+        localStorage.removeItem(
+          'selectedFairEvent'
+        );
+        setSelectedEvent(null);
+        setFormData((prev) => ({
+          ...prev,
+          location: '',
+        }));
+        return;
+      }
       setSelectedEvent(
-        eventToUse
+        matchedEvent
       );
       setFormData((prev) => ({
         ...prev,
-        location:
-          eventToUse?.location ||
-          '',
+        location: matchedEvent.location,
       }));
+      localStorage.setItem(
+        'selectedFairEvent',
+        JSON.stringify(matchedEvent)
+      );
     };
 
     window.addEventListener(
@@ -958,7 +942,7 @@ export default function LeadForm({
                   <option value="">
                     Chọn địa điểm tham gia
                   </option>
-                  {EVENTS.map(
+                  {NOVEMBER_EVENTS.map(
                     (event) => (
                       <option
                         key={
@@ -970,7 +954,7 @@ export default function LeadForm({
                       >
                         {event.location}
                         {' – '}
-                        {event.date} ({event.venue})
+                        {event.date} ({event.venue}; dữ liệu tạm)
                       </option>
                     )
                   )}

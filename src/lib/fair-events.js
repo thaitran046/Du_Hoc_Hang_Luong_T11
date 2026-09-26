@@ -1,0 +1,56 @@
+export const NOVEMBER_EVENTS = [
+  {
+    id: 'vung-tau',
+    location: 'Vũng Tàu',
+    date: '07/11/2026',
+    day: '07',
+    month: 'THÁNG 11',
+    time: '13:00–17:00',
+    venue: 'Đang cập nhật',
+    address: 'Đang cập nhật',
+    isTemporary: true,
+  },
+  {
+    id: 'tp-hcm',
+    location: 'TP.HCM',
+    date: '08/11/2026',
+    day: '08',
+    month: 'THÁNG 11',
+    time: '13:00–17:00',
+    venue: 'Đang cập nhật',
+    address: 'Đang cập nhật',
+    isTemporary: true,
+  },
+  {
+    id: 'can-tho',
+    location: 'Cần Thơ',
+    date: '09/11/2026',
+    day: '09',
+    month: 'THÁNG 11',
+    time: '13:00–17:00',
+    venue: 'Đang cập nhật',
+    address: 'Đang cập nhật',
+    isTemporary: true,
+  },
+];
+
+export const SEPTEMBER_PAST_EVENTS = [
+  {
+    id: 'gia-nghia-september-2026',
+    location: 'Gia Nghĩa',
+    date: '24/09/2026',
+    status: 'past',
+  },
+  {
+    id: 'bao-loc-september-2026',
+    location: 'Bảo Lộc',
+    date: '26/09/2026',
+    status: 'past',
+  },
+  {
+    id: 'da-lat-september-2026',
+    location: 'Đà Lạt',
+    date: '27/09/2026',
+    status: 'past',
+  },
+];

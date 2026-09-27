@@ -47,6 +47,15 @@ const EVENT_LOCATION_MAP = {
 
   'Đà Lạt': 'Đà Lạt',
   'TP. Đà Lạt': 'Đà Lạt',
+
+  'vung-tau': 'Vũng Tàu',
+  'Vũng Tàu': 'Vũng Tàu',
+
+  'tp-hcm': 'TP.HCM',
+  'TP.HCM': 'TP.HCM',
+
+  'can-tho': 'Cần Thơ',
+  'Cần Thơ': 'Cần Thơ',
 };
 
 // ========================================

@@ -1,45 +1,39 @@
 import React from 'react';
-import { content } from '../lib/content';
-import { ChevronRight } from 'lucide-react';
+
+const audiences = [
+  {
+    title: 'Học sinh THPT',
+    description: 'Định hướng ngành nghề và tìm hiểu lộ trình học tập sau phổ thông.',
+  },
+  {
+    title: 'Sinh viên đại học',
+    description: 'Khám phá lựa chọn học tiếp, chuyển tiếp và cơ hội học bổng.',
+  },
+  {
+    title: 'Phụ huynh',
+    description: 'Cùng trao đổi về lựa chọn phù hợp với mục tiêu và điều kiện của gia đình.',
+  },
+];
 
 export default function Audience() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-            HẰNG LƯƠNG ĐỒNG HÀNH TRONG MỌI GIAI ĐOẠN
-          </h2>
-          <div className="h-1.5 w-20 bg-brand-blue mx-auto rounded-full" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {content.audiences.map((item, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-center">
-              <div className="flex-1">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {item.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  {item.desc}
-                </p>
-                <a 
-                  href="#registration-form" 
-                  className="inline-flex items-center text-brand-blue font-bold hover:translate-x-1 transition-transform"
-                >
-                  {item.cta} <ChevronRight className="w-5 h-5 ml-1" />
-                </a>
-              </div>
-              <div className="w-full md:w-40 h-40 bg-slate-50 rounded-2xl flex items-center justify-center">
-                 <div className="text-4xl">🎓</div>
-              </div>
-            </div>
-          ))}
+    <section className="bg-white pb-8 pt-12 md:pb-10 md:pt-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-7 border-y border-slate-300 py-6 md:grid-cols-[0.7fr_1.3fr] md:items-center md:gap-10 md:py-8">
+          <div>
+            <p className="journey-kicker">Who comes along</p>
+            <h2 className="mt-2 text-2xl font-extrabold leading-tight text-slate-900 md:text-3xl">
+              Một hành trình, nhiều điểm nhìn.
+            </h2>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
+            {audiences.map((audience) => (
+              <article key={audience.title} className="min-w-0">
+                <h3 className="text-lg font-bold text-slate-900">{audience.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{audience.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

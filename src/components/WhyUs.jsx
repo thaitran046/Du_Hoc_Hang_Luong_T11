@@ -1,30 +1,50 @@
 import React from 'react';
-import { content } from '../lib/content';
+
+const benefits = [
+  {
+    title: 'Tư vấn cá nhân hóa 1-1',
+    description: 'Trao đổi về mục tiêu, mối quan tâm và lộ trình phù hợp với từng người.',
+  },
+  {
+    title: 'Định hướng nghề nghiệp',
+    description: 'Cùng chuyên gia nhìn lại năng lực, sở thích và lựa chọn ngành học.',
+  },
+  {
+    title: 'Đánh giá hồ sơ học bổng',
+    description: 'Tìm hiểu những điểm cần chuẩn bị cho hồ sơ và cơ hội học bổng phù hợp.',
+  },
+  {
+    title: 'Xây dựng lộ trình học tập / du học',
+    description: 'Tham khảo lựa chọn quốc gia, trường và ngành theo mục tiêu, học lực và tài chính.',
+  },
+  {
+    title: 'Cơ hội học tập và việc làm quốc tế',
+    description: 'Tìm hiểu các hướng học tập và công việc quốc tế phù hợp với kế hoạch cá nhân.',
+  },
+];
 
 export default function WhyUs() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-            BẠN ĐANG PHÂN VÂN TRÊN HÀNH TRÌNH DU HỌC?
+    <section className="journey-discovery-section bg-slate-50 py-14 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-9 max-w-2xl md:mb-12">
+          <p className="journey-kicker">Along the way · What you can explore</p>
+          <h2 className="mt-3 text-[clamp(2rem,8vw,2.75rem)] font-extrabold leading-tight text-slate-900 md:text-4xl">
+            Mỗi cuộc trò chuyện mở ra một hướng đi.
           </h2>
-          <div className="h-1.5 w-20 bg-brand-red mx-auto rounded-full mb-6" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {content.whyUs.map((item, idx) => (
-            <div key={idx} className="p-8 rounded-2xl border border-slate-100 hover:border-brand-blue/30 hover:shadow-xl hover:shadow-red-500/5 transition-all group">
-              <div className="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                <item.icon className="w-7 h-7" />
+        <ol className="journey-discoveries">
+          {benefits.map((benefit, index) => (
+            <li key={benefit.title} className="journey-discovery">
+              <span className="journey-discovery__number">0{index + 1}</span>
+              <div className="min-w-0">
+                <h3 className="text-xl font-bold leading-snug text-slate-900 md:text-2xl">{benefit.title}</h3>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 md:text-base">{benefit.description}</p>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-                {item.desc}
-              </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

@@ -1,389 +1,65 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { content } from '../lib/content';
-import LeadForm from './LeadForm';
-import { Calendar } from 'lucide-react';
-
-const YOUTUBE_VIDEO_ID = '7vQ1S7m4NtE';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { NOVEMBER_EVENTS } from '../lib/fair-events';
 
 export default function Hero() {
-  const playerRef = useRef(null);
-  const [youtubeReady, setYoutubeReady] = useState(false);
-
-  // ==========================================
-  // LOAD YOUTUBE IFRAME API
-  // ==========================================
-  useEffect(() => {
-    if (window.YT && window.YT.Player) {
-      setYoutubeReady(true);
-      return;
-    }
-
-    const existingScript = document.querySelector(
-      'script[src="https://www.youtube.com/iframe_api"]'
-    );
-
-    if (existingScript) {
-      window.onYouTubeIframeAPIReady = () => {
-        setYoutubeReady(true);
-      };
-
-      return;
-    }
-
-    const script = document.createElement('script');
-
-    script.src = 'https://www.youtube.com/iframe_api';
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    window.onYouTubeIframeAPIReady = () => {
-      setYoutubeReady(true);
-    };
-
-    return () => {
-      window.onYouTubeIframeAPIReady = null;
-    };
-  }, []);
-
-  // ==========================================
-  // INIT YOUTUBE PLAYER
-  // ==========================================
-  useEffect(() => {
-    if (!youtubeReady || playerRef.current) return;
-
-    playerRef.current = new window.YT.Player(
-      'hero-youtube-player',
-      {
-        videoId: YOUTUBE_VIDEO_ID,
-
-        playerVars: {
-          autoplay: 0,
-          controls: 1,
-          rel: 0,
-          playsinline: 1,
-          fs: 1,
-          iv_load_policy: 3,
-        },
-
-        events: {
-          onReady: (event) => {
-            event.target.pauseVideo();
-          },
-        },
-      }
-    );
-
-    return () => {
-      if (playerRef.current) {
-        try {
-          playerRef.current.destroy();
-        } catch (error) {
-          console.log(error);
-        }
-
-        playerRef.current = null;
-      }
-    };
-  }, [youtubeReady]);
-
   return (
-    // Đã tăng pt-12 md:pt-16 để tránh đè lên thanh Header phía trên
-    <section className="relative overflow-hidden bg-slate-50 pt-12 pb-20 md:pt-16 md:pb-24">
+    <section className="fair-cover overflow-hidden bg-slate-900 text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-9 sm:px-6 sm:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:px-8 lg:py-16">
+        <div className="min-w-0">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-red-300 sm:text-sm">
+            Hằng Lương giới thiệu
+          </p>
+          <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.05] md:text-5xl">
+            EDUCATION FAIR <span className="text-red-300">2026</span>
+          </h1>
+          <p className="mt-5 max-w-xl text-sm font-bold uppercase leading-relaxed text-white sm:text-base">
+            Hướng nghiệp <span className="text-red-300">/</span> Du học <span className="text-red-300">/</span> Việc làm quốc tế
+          </p>
+          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
+            Một hành trình gặp gỡ, khám phá lựa chọn học tập và nghề nghiệp cho học sinh, sinh viên và phụ huynh.
+          </p>
 
-      {/* ================================================= */}
-      {/* VIDEO YOUTUBE */}
-      {/* FULL THEO CONTAINER - KHÔNG QUÁ CAO */}
-      {/* ================================================= */}
-
-      <div className="container mx-auto px-4">
-
-        <div
-          className="
-            relative
-            w-full
-            aspect-[21/9]
-            max-h-[380px]
-            md:max-h-[460px]
-            mx-auto
-            overflow-hidden
-            rounded-2xl
-            bg-black
-            shadow-2xl
-          "
-        >
-          <div
-            id="hero-youtube-player"
-            className="absolute inset-0 w-full h-full"
-          />
-        </div>
-
-      </div>
-
-
-      {/* ================================================= */}
-      {/* HERO CONTENT */}
-      {/* ================================================= */}
-
-      <div className="relative mt-12">
-
-        {/* Background pattern */}
-        <div
-          className="
-            absolute
-            top-0
-            right-0
-            w-1/2
-            h-full
-            bg-brand-blue
-            opacity-[0.03]
-            -skew-x-12
-            translate-x-1/4
-            pointer-events-none
-          "
-        />
-
-        <div className="container mx-auto px-4 relative z-10">
-
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-
-            {/* ================================================= */}
-            {/* LEFT - HERO CONTENT */}
-            {/* ================================================= */}
-
-            <div className="flex-1 text-center lg:text-left">
-
-              {/* Badge */}
-              <div
-                className="
-                  inline-flex
-                  items-center
-                  px-4
-                  py-2
-                  rounded-full
-                  bg-red-50
-                  text-brand-blue
-                  text-sm
-                  font-bold
-                  mb-6
-                  border
-                  border-red-100
-                "
-              >
-                <span className="relative flex h-2 w-2 mr-2">
-                  <span
-                    className="
-                      animate-ping
-                      absolute
-                      inline-flex
-                      h-full
-                      w-full
-                      rounded-full
-                      bg-red-400
-                      opacity-75
-                    "
-                  />
-
-                  <span
-                    className="
-                      relative
-                      inline-flex
-                      rounded-full
-                      h-2
-                      w-2
-                      bg-brand-blue
-                    "
-                  />
-                </span>
-
-                Tư vấn du học chuyên nghiệp
-              </div>
-
-
-              {/* Heading */}
-              <h1
-                className="
-                  text-4xl
-                  md:text-5xl
-                  lg:text-6xl
-                  font-extrabold
-                  text-slate-900
-                  leading-[1.1]
-                  mb-6
-                "
-              >
-                MỞ CỬA TƯƠNG LAI
-
-                <br />
-
-                <span className="text-brand-blue italic">
-                  CÙNG DU HỌC HẰNG LƯƠNG
-                </span>
-              </h1>
-
-
-              {/* Description */}
-              <p
-                className="
-                  text-lg
-                  md:text-xl
-                  text-slate-600
-                  mb-8
-                  max-w-2xl
-                  mx-auto
-                  lg:mx-0
-                  leading-relaxed
-                "
-              >
-                Tư vấn du học cá nhân hóa: định hướng lộ trình,
-                chọn trường & ngành, hỗ trợ hồ sơ phù hợp năng lực
-                và tài chính từng gia đình.
-              </p>
-
-
-              {/* ================================================= */}
-              {/* USP */}
-              {/* ================================================= */}
-
-              <div
-                className="
-                  grid
-                  sm:grid-cols-2
-                  gap-4
-                  mb-10
-                  max-w-xl
-                  mx-auto
-                  lg:mx-0
-                  text-left
-                "
-              >
-                {content.usp.map((item, idx) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div
-                      key={idx}
-                      className="
-                        flex
-                        items-center
-                        space-x-2
-                        text-slate-700
-                        font-medium
-                      "
-                    >
-                      <Icon
-                        className="
-                          w-5
-                          h-5
-                          text-green-500
-                          flex-shrink-0
-                        "
-                      />
-
-                      <span className="text-sm md:text-base">
-                        {item.text}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-
-              {/* ================================================= */}
-              {/* CTA */}
-              {/* ================================================= */}
-
-              <div
-                className="
-                  flex
-                  flex-col
-                  sm:flex-row
-                  items-center
-                  justify-center
-                  lg:justify-start
-                  gap-4
-                "
-              >
-                <a
-                  href="#registration-form"
-                  className="
-                    w-full
-                    sm:w-auto
-                    px-8
-                    py-4
-                    bg-brand-blue
-                    text-white
-                    rounded-xl
-                    font-bold
-                    shadow-xl
-                    shadow-red-500/20
-                    hover:bg-red-700
-                    transition-all
-                    flex
-                    items-center
-                    justify-center
-                  "
-                >
-                  NHẬN TƯ VẤN MIỄN PHÍ
-                </a>
-
-
-                <a
-                  href="#events"
-                  className="
-                    w-full
-                    sm:w-auto
-                    px-8
-                    py-4
-                    bg-white
-                    text-slate-900
-                    border-2
-                    border-slate-200
-                    rounded-xl
-                    font-bold
-                    hover:bg-slate-50
-                    transition-all
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
-                  "
-                >
-                  <Calendar className="w-5 h-5" />
-
-                  <span>
-                    ĐĂNG KÝ SỰ KIỆN
-                  </span>
-                </a>
-              </div>
-
-            </div>
-
-
-            {/* ================================================= */}
-            {/* RIGHT - LEAD FORM */}
-            {/* ================================================= */}
-
-            <div
-              id="registration-form"
-              className="
-                flex-1
-                w-full
-                max-w-xl
-                lg:max-w-md
-                xl:max-w-lg
-                scroll-mt-24
-              "
-            >
-              <LeadForm />
-            </div>
-
+          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/20 pt-4 text-xs font-semibold text-slate-200 sm:text-sm">
+            <span>Tư vấn cá nhân hóa 1-1</span>
+            <span>Định hướng nghề nghiệp</span>
+            <span>Đánh giá hồ sơ học bổng</span>
           </div>
 
+          <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-5">
+            <a
+              href="#registration-form"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-3 bg-brand-red px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+            >
+              ĐĂNG KÝ GIỮ SUẤT MIỄN PHÍ
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a href="#journey" className="inline-flex min-h-11 items-center text-sm font-bold text-white underline decoration-red-300 underline-offset-4 hover:text-red-200">
+              XEM HÀNH TRÌNH
+            </a>
+          </div>
         </div>
 
+        <div className="fair-cover__route min-w-0 border-y border-white/25 py-4" aria-label="Ba thành phố, ba ngày trong tháng 11 năm 2026">
+          <div className="mb-2 flex items-baseline justify-between gap-4">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-red-300">3 thành phố · 3 ngày</p>
+            <p className="text-xs font-bold uppercase tracking-wide text-slate-300">Nov 2026</p>
+          </div>
+          <ol className="fair-cover__stops">
+            {NOVEMBER_EVENTS.map((event) => (
+              <li key={event.id} className="fair-cover__stop">
+                <a href="#events" className="fair-cover__stop-link">
+                  <span className="fair-cover__date">{event.day}<span>.11</span></span>
+                  <span className="fair-cover__city">{event.location}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-3 text-xs leading-5 text-slate-400">
+            Venue và địa chỉ: Đang cập nhật, chưa xác nhận.
+          </p>
+        </div>
       </div>
-
     </section>
   );
 }

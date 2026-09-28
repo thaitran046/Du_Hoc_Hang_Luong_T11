@@ -597,35 +597,31 @@ export default function LeadForm({
     <div
       id="registration-form"
       className={cn(
-        'bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100',
+        'scroll-mt-24 overflow-hidden border border-slate-200 bg-white shadow-sm',
         className
       )}
     >
       {/* HEADER */}
-      <div className="bg-brand-red p-6 text-white text-center">
-        <h3 className="text-xl font-bold">
-          ĐĂNG KÝ EDUCATION FAIR 2026
-        </h3>
-        <p className="text-red-100 text-sm mt-1">
-          Hoàn tất thông tin để nhận email xác nhận tham gia sự kiện.
+      <div className="bg-slate-900 px-5 py-5 text-white sm:px-7">
+        <p className="text-xs font-bold uppercase tracking-wide text-red-200">
+          Education Fair 2026 · đăng ký miễn phí
         </p>
-        <div className="flex items-center justify-center mt-6 space-x-2">
-          <div
-            className={cn(
-              'h-1.5 w-12 rounded-full',
-              step >= 1
-                ? 'bg-white'
-                : 'bg-red-400'
-            )}
-          />
-          <div
-            className={cn(
-              'h-1.5 w-12 rounded-full',
-              step >= 2
-                ? 'bg-white'
-                : 'bg-red-400'
-            )}
-          />
+        <h3 className="mt-2 text-xl font-bold leading-tight md:text-2xl">
+          Giữ suất tham dự
+        </h3>
+        <p className="mt-2 text-sm leading-6 text-slate-200">
+          Chọn thành phố và chia sẻ nhu cầu để nhận tư vấn cá nhân hóa 1-1.
+        </p>
+        <div className="mt-5" aria-label={`Bước ${step} trên 2`}>
+          <p className="mb-2 text-xs font-semibold text-slate-300">BƯỚC {step} / 2</p>
+          <div className="grid grid-cols-2 gap-3">
+            <div className={cn('border-t-2 pt-2 text-xs font-semibold sm:text-sm', step >= 1 ? 'border-red-400 text-white' : 'border-white/30 text-slate-400')}>
+              1 · Nhu cầu tư vấn
+            </div>
+            <div className={cn('border-t-2 pt-2 text-xs font-semibold sm:text-sm', step >= 2 ? 'border-red-400 text-white' : 'border-white/30 text-slate-400')}>
+              2 · Thông tin liên hệ
+            </div>
+          </div>
         </div>
       </div>
 
@@ -634,7 +630,7 @@ export default function LeadForm({
         onSubmit={handleSubmit}
         onFocusCapture={handleFormStart}
         onClickCapture={handleFormStart}
-        className="p-6 md:p-8"
+        className="space-y-5 p-5 sm:p-7"
       >
         <AnimatePresence
           mode="wait"
@@ -658,8 +654,8 @@ export default function LeadForm({
             >
               {/* ROLE */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-3">
-                  Bạn là ai?
+                <label className="mb-3 block text-sm font-semibold text-slate-800">
+                  Bạn là ai? <span className="text-brand-red">Bắt buộc</span>
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   {roles.map(
@@ -682,7 +678,7 @@ export default function LeadForm({
                             )
                           }
                           className={cn(
-                            'flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all text-sm',
+                            'flex min-h-16 flex-col items-center justify-center rounded-lg border px-2 py-3 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red',
                             formData.role ===
                               role.label
                               ? 'border-brand-red bg-red-50 text-brand-red'
@@ -700,8 +696,8 @@ export default function LeadForm({
 
               {/* PROGRAM */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-3">
-                  Bạn quan tâm chương trình nào?
+                <label className="mb-3 block text-sm font-semibold text-slate-800">
+                  Bạn quan tâm chương trình nào? <span className="text-brand-red">Bắt buộc</span>
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {programs.map(
@@ -720,7 +716,7 @@ export default function LeadForm({
                           )
                         }
                         className={cn(
-                          'px-3 py-2 rounded-lg border text-xs font-medium text-left transition-all',
+                          'min-h-11 px-3 py-2 rounded-lg border text-sm font-medium text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red',
                           formData.program ===
                             program
                             ? 'border-brand-red bg-red-50 text-brand-red'
@@ -742,7 +738,7 @@ export default function LeadForm({
                   !formData.role ||
                   !formData.program
                 }
-                className="w-full bg-brand-red text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 disabled:opacity-50"
+                className="flex min-h-12 w-full items-center justify-center gap-2 bg-brand-red py-3 font-bold text-white transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:opacity-50"
               >
                 TIẾP TỤC
                 <ChevronRight className="w-5 h-5" />
@@ -768,8 +764,8 @@ export default function LeadForm({
               {/* NAME + PHONE */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-                    Họ và tên *
+                  <label className="mb-1 block text-sm font-bold text-slate-700">
+                    Họ và tên <span className="text-brand-red">· Bắt buộc</span>
                   </label>
                   <input
                     required
@@ -787,12 +783,12 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-brand-red"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-                    Số điện thoại *
+                  <label className="mb-1 block text-sm font-bold text-slate-700">
+                    Số điện thoại <span className="text-brand-red">· Bắt buộc</span>
                   </label>
                   <input
                     required
@@ -810,15 +806,15 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-brand-red"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
                   />
                 </div>
               </div>
 
               {/* EMAIL */}
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-                  Email nhận xác nhận *
+                <label className="mb-1 block text-sm font-bold text-slate-700">
+                  Email
                 </label>
                 <input
                   required
@@ -836,15 +832,15 @@ export default function LeadForm({
                       })
                     )
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 outline-none focus:border-brand-red"
+                  className="min-h-12 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
                 />
               </div>
 
               {/* COUNTRY + TIMEFRAME */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-                    Nước quan tâm
+                  <label className="mb-1 block text-sm font-bold text-slate-700">
+                    Nước quan tâm <span className="font-normal text-slate-500">· Không bắt buộc</span>
                   </label>
                   <select
                     value={
@@ -859,7 +855,7 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-red-100"
                   >
                     <option value="">
                       Chọn quốc gia
@@ -881,8 +877,8 @@ export default function LeadForm({
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-                    Thời gian dự kiến
+                  <label className="mb-1 block text-sm font-bold text-slate-700">
+                    Thời gian dự kiến <span className="font-normal text-slate-500">· Không bắt buộc</span>
                   </label>
                   <select
                     value={
@@ -897,7 +893,7 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-red-100"
                   >
                     <option value="">
                       Chọn thời gian
@@ -918,8 +914,8 @@ export default function LeadForm({
 
               {/* ĐỊA ĐIỂM THAM GIA (TÍCH HỢP TRỰC TIẾP TRÊN FORM) */}
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-                  Địa điểm tham gia *
+                <label className="mb-1 block text-sm font-bold text-slate-700">
+                  Thành phố tham dự <span className="text-brand-red">· Bắt buộc</span>
                 </label>
                 <select
                   required
@@ -933,7 +929,7 @@ export default function LeadForm({
                     )
                   }
                   className={cn(
-                    'w-full px-4 py-3 rounded-lg border bg-white outline-none transition-all',
+                    'min-h-12 w-full rounded-lg border bg-white px-4 py-3 outline-none transition-colors focus:ring-2 focus:ring-red-100',
                     selectedEvent
                       ? 'border-brand-red ring-1 ring-red-100'
                       : 'border-slate-200 focus:border-brand-red'
@@ -954,7 +950,7 @@ export default function LeadForm({
                       >
                         {event.location}
                         {' – '}
-                        {event.date} ({event.venue}; dữ liệu tạm)
+                        {event.date} (venue đang cập nhật)
                       </option>
                     )
                   )}
@@ -962,42 +958,23 @@ export default function LeadForm({
 
                 {/* Hiển thị chi tiết địa điểm khi đã chọn */}
                 {selectedEvent && (
-                  <div className="mt-3 rounded-xl bg-red-50 border border-red-100 p-4">
-                    <div className="flex items-start gap-3">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-red text-white">
-                        <CheckCircle2 className="h-4 w-4" />
-                      </div>
+                  <div className="mt-4 border-y border-slate-300 py-4">
+                    <div className="flex flex-wrap items-end justify-between gap-3">
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-wider text-brand-red">
-                          Địa điểm đã chọn
+                        <p className="text-xs font-bold uppercase tracking-wide text-brand-red">
+                          Điểm dừng đã chọn
                         </p>
-                        <p className="mt-1 font-extrabold text-slate-900">
+                        <p className="mt-1 text-xl font-extrabold text-slate-900">
                           {selectedEvent.location}
                         </p>
-                        <p className="text-sm font-semibold text-slate-700">
-                          {selectedEvent.venue}
-                        </p>
                       </div>
+                      <p className="font-bold tabular-nums text-slate-800">
+                        {selectedEvent.date} · {selectedEvent.time}
+                      </p>
                     </div>
-                    <div className="mt-3 space-y-1.5 text-xs text-slate-600">
-                      <div className="flex items-start gap-2">
-                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" />
-                        <span>
-                          {selectedEvent.address}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 shrink-0 text-brand-red" />
-                        <span>
-                          {selectedEvent.date}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock3 className="h-4 w-4 shrink-0 text-brand-red" />
-                        <span>
-                          {selectedEvent.time}
-                        </span>
-                      </div>
+                    <div className="mt-4 grid gap-2 text-xs leading-5 text-slate-600 sm:grid-cols-2">
+                      <p>Venue chưa xác nhận: {selectedEvent.venue}</p>
+                      <p>Địa chỉ chưa xác nhận: {selectedEvent.address}</p>
                     </div>
                   </div>
                 )}
@@ -1005,8 +982,8 @@ export default function LeadForm({
 
               {/* NEEDS */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  Bạn cần hỗ trợ điều gì? (Có thể chọn nhiều)
+                <label className="mb-2 block text-sm font-semibold text-slate-800">
+                  Bạn cần hỗ trợ điều gì? <span className="font-normal text-slate-500">· Không bắt buộc, có thể chọn nhiều</span>
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {assistance.map(
@@ -1022,7 +999,7 @@ export default function LeadForm({
                           )
                         }
                         className={cn(
-                          'px-3 py-1.5 rounded-full border text-xs font-medium',
+                          'min-h-11 px-3 py-2 rounded-md border text-xs font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red',
                           formData.needs.includes(
                             need
                           )
@@ -1047,7 +1024,7 @@ export default function LeadForm({
                   disabled={
                     isSubmitting
                   }
-                  className="px-6 py-4 rounded-xl font-bold border-2 border-slate-100 text-slate-600 disabled:opacity-50"
+                  className="min-h-12 px-5 py-3 font-bold text-slate-700 underline underline-offset-4 disabled:opacity-50"
                 >
                   QUAY LẠI
                 </button>
@@ -1057,7 +1034,7 @@ export default function LeadForm({
                     isSubmitting ||
                     !selectedEvent
                   }
-                  className="flex-1 bg-brand-red text-white py-4 rounded-xl font-bold flex items-center justify-center disabled:opacity-60"
+                  className="flex min-h-12 flex-1 items-center justify-center bg-brand-red px-3 py-3 text-sm font-bold text-white transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:opacity-60"
                 >
                   {isSubmitting ? (
                     <>
@@ -1065,13 +1042,16 @@ export default function LeadForm({
                       ĐANG GỬI...
                     </>
                   ) : (
-                    'XÁC NHẬN THAM GIA SỰ KIỆN'
+                    <>
+                      <span className="sm:hidden">GIỮ SUẤT MIỄN PHÍ</span>
+                      <span className="hidden sm:inline">ĐĂNG KÝ GIỮ SUẤT MIỄN PHÍ</span>
+                    </>
                   )}
                 </button>
               </div>
 
               {/* PRIVACY */}
-              <p className="text-[10px] text-slate-400 text-center italic">
+              <p className="text-xs leading-5 text-slate-500">
                 Thông tin của bạn được bảo mật và chỉ sử dụng cho mục đích tư vấn và xác nhận tham gia sự kiện.
               </p>
             </motion.div>

@@ -1,3 +1,4 @@
+/* Hallmark · macrostructure: Manifesto · genre: editorial · audience: students and parents · use: November Fair registration */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;600;700&display=swap");
 @import "tailwindcss";
 
@@ -8,22 +9,34 @@
   --font-lexend: "Lexend", sans-serif;
 }
 
+:root {
+  --fair-navy: #0f172a;
+  --fair-red: #e31b23;
+  --fair-line: #cbd5e1;
+  --fair-paper: #f1f5f9;
+}
+
 * {
   font-family: "Inter", system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Lexend", sans-serif;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   background-color: #ffffff;
   color: #1a1a1a;
+  overflow-x: clip;
 }
 
 .bg-brand-gradient {
@@ -44,3 +57,397 @@ body {
 
 .destination-rail { scrollbar-width: none; -ms-overflow-style: none; }
 .destination-rail::-webkit-scrollbar { display: none; }
+
+.fair-cover__stops,
+.journey-stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fair-cover__stops {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.fair-cover__stop {
+  position: relative;
+  min-width: 0;
+  padding: 0 0 0.65rem 1.4rem;
+  border-inline-start: 1px solid rgb(255 255 255 / 35%);
+}
+
+.fair-cover__stop:last-child {
+  border-inline-start-color: transparent;
+}
+
+.fair-cover__stop::before,
+.journey-stop__node {
+  position: absolute;
+  top: 0.68rem;
+  left: -0.28rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 2px solid var(--fair-red);
+  border-radius: 50%;
+  background: var(--fair-navy);
+  content: "";
+}
+
+.fair-cover__stop-link {
+  display: grid;
+  min-height: 2.9rem;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+}
+
+.fair-cover__date {
+  color: #fca5a5;
+  font-family: "Lexend", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.fair-cover__date span {
+  font-size: 0.85rem;
+  color: white;
+}
+
+.fair-cover__city {
+  min-width: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.journey {
+  overflow: clip;
+}
+
+.journey-chapter {
+  display: grid;
+  gap: 2rem;
+}
+
+.journey-kicker {
+  color: var(--fair-red);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journey-stops {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.journey-stop {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 0.4rem;
+  padding: 0.15rem 0 1.75rem 1.5rem;
+  border-inline-start: 1px solid var(--fair-line);
+}
+
+.journey-stop:last-child {
+  border-inline-start-color: transparent;
+}
+
+.journey-stop__node {
+  top: 0.65rem;
+  background: white;
+}
+
+.journey-stop--next .journey-stop__node {
+  background: var(--fair-red);
+}
+
+.journey-stop__date {
+  color: var(--fair-red);
+  font-family: "Lexend", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-stop--past .journey-stop__date {
+  color: #64748b;
+  font-size: 0.8rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.journey-stop__city {
+  color: var(--fair-navy);
+  font-family: "Lexend", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.journey-stop__state,
+.journey-stop__time,
+.journey-stop__venue,
+.journey-stop__notice {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.journey-stop__state,
+.journey-stop__venue {
+  color: #64748b;
+}
+
+.journey-stop__time {
+  margin-top: 0.25rem;
+  color: var(--fair-navy);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-stop__notice {
+  color: #92400e;
+  font-weight: 700;
+}
+
+.journey-stop__action {
+  display: inline-flex;
+  min-height: 2.75rem;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  border-bottom: 1px solid var(--fair-red);
+  color: var(--fair-navy);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.journey-stop__action:focus-visible {
+  outline: 2px solid var(--fair-red);
+  outline-offset: 3px;
+}
+
+.journey-archive {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.journey-archive__slot {
+  min-width: 0;
+  margin: 0;
+}
+
+.journey-archive__frame {
+  display: flex;
+  min-height: 9rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 3px solid var(--fair-red);
+  background: var(--fair-navy);
+  color: white;
+}
+
+.journey-archive__index,
+.journey-archive__note {
+  color: #cbd5e1;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.journey-archive__place {
+  font-family: "Lexend", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.journey-archive__slot figcaption {
+  padding-top: 0.45rem;
+  color: #64748b;
+  font-size: 0.7rem;
+}
+
+.journey-transition {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  gap: 0.8rem;
+  margin: 3rem 0;
+  color: var(--fair-red);
+  font-family: "Lexend", sans-serif;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.journey-transition__rule {
+  width: 3rem;
+  height: 1px;
+  background: var(--fair-red);
+}
+
+.journey-chapter--next {
+  padding-top: 2rem;
+  border-top: 1px solid var(--fair-line);
+}
+
+.journey-chapter--next .journey-stop {
+  padding-bottom: 1.5rem;
+}
+
+.journey-discoveries {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--fair-line);
+  list-style: none;
+}
+
+.journey-discovery {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--fair-line);
+}
+
+.journey-discovery-section {
+  display: block;
+  min-width: 0;
+}
+
+.journey-discovery__number {
+  padding-top: 0.15rem;
+  color: var(--fair-red);
+  font-family: "Lexend", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-registration__form {
+  border: 0;
+  box-shadow: none;
+}
+
+.journey-registration__intro .journey-kicker {
+  color: #fca5a5;
+}
+
+@media (min-width: 64rem) {
+  .journey-discoveries {
+    margin-inline-start: 25%;
+  }
+
+  .journey-discovery {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .journey-discovery__number {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 40rem) {
+  .journey-archive {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .fair-cover__stops {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-top: 0.7rem;
+    border-top: 1px solid rgb(255 255 255 / 35%);
+  }
+
+  .fair-cover__stop {
+    padding: 0.6rem 0.5rem 0 0;
+    border: 0;
+  }
+
+  .fair-cover__stop::before {
+    top: -0.98rem;
+    left: 0;
+  }
+
+  .fair-cover__stop-link {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 0.5rem;
+  }
+
+  .journey-chapter {
+    grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1.3fr);
+    align-items: start;
+    gap: 3rem;
+  }
+
+  .journey-chapter__heading {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .journey-stops {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 0.75rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--fair-line);
+  }
+
+  .journey-stop {
+    padding: 0.65rem 0.9rem 1rem 0;
+    border: 0;
+  }
+
+  .journey-stop__node {
+    top: -1.23rem;
+    left: 0;
+  }
+
+  .journey-archive {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .journey-transition {
+    grid-template-columns: minmax(3rem, 1fr) auto minmax(3rem, 1fr);
+    align-items: center;
+    justify-items: stretch;
+    gap: 1.5rem;
+    margin: 4rem 0;
+  }
+
+  .journey-transition__rule {
+    width: 100%;
+  }
+
+  .journey-chapter--next {
+    padding-top: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

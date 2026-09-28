@@ -1,31 +1,25 @@
 import React from 'react';
-import { content } from '../lib/content';
 import { track } from '../lib/tracking';
 
 export default function BottomCTA() {
   return (
-    <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-brand-gradient" />
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-         <div className="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-3xl" />
-         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-red rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="max-w-3xl mx-auto text-white">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-            BẠN CHƯA BIẾT BẮT ĐẦU HÀNH TRÌNH DU HỌC TỪ ĐÂU?
+    <section className="bg-slate-900 py-12 text-white md:py-16">
+      <div className="mx-auto flex max-w-7xl flex-col items-start gap-7 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-sm font-bold uppercase tracking-wide text-red-300">Education Fair 2026 · tháng 11</p>
+          <h2 className="mt-3 text-2xl font-extrabold leading-tight md:text-3xl">
+            Hẹn bạn tại Vũng Tàu, TP.HCM hoặc Cần Thơ
           </h2>
-          <p className="text-lg md:text-xl text-red-100 mb-10 opacity-90">
-            Hãy để chuyên gia Hằng Lương giúp bạn xây dựng lộ trình du học phù hợp nhất với điều kiện và mục tiêu của bạn.
+          <p className="mt-3 leading-7 text-slate-200">
+            Hướng nghiệp · Du học · Việc làm quốc tế
           </p>
-          <a 
-            href="#registration-form" onClick={() => track('click_cta', { location: 'bottom_cta', cta: 'free_consultation' })} 
-            className="inline-block px-12 py-5 bg-brand-red text-white rounded-full font-bold text-lg shadow-2xl shadow-red-900/50 hover:bg-red-600 hover:scale-105 transition-all"
-          >
-            NHẬN TƯ VẤN MIỄN PHÍ NGAY
-          </a>
         </div>
+        <a
+            href="#registration-form" onClick={() => track('click_cta', { location: 'bottom_cta', cta: 'free_consultation' })}
+            className="inline-flex min-h-12 w-full items-center justify-center whitespace-nowrap bg-brand-red px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-auto"
+          >
+            ĐĂNG KÝ GIỮ SUẤT MIỄN PHÍ
+        </a>
       </div>
     </section>
   );

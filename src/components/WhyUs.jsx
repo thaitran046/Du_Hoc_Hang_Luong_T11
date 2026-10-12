@@ -1,25 +1,26 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const benefits = [
   {
     title: 'Tư vấn cá nhân hóa 1-1',
-    description: 'Trao đổi về mục tiêu, mối quan tâm và lộ trình phù hợp với từng người.',
+    description: 'Trao đổi trực tiếp mọi băn khoăn về năng lực, sở thích và điều kiện gia đình để tìm ra lộ trình du học thực tế nhất.',
   },
   {
-    title: 'Định hướng nghề nghiệp',
-    description: 'Cùng chuyên gia nhìn lại năng lực, sở thích và lựa chọn ngành học.',
+    title: 'Định hướng nghề nghiệp & chọn ngành',
+    description: 'Phân tích xu hướng thị trường lao động toàn cầu, chọn ngành học có cơ hội việc làm tốt, không lo thất nghiệp.',
   },
   {
-    title: 'Đánh giá hồ sơ học bổng',
-    description: 'Tìm hiểu những điểm cần chuẩn bị cho hồ sơ và cơ hội học bổng phù hợp.',
+    title: 'Đánh giá hồ sơ & Xét học bổng tại chỗ',
+    description: 'Mang theo học bạ (GPA từ 6.5+) để được chuyên gia xét duyệt học bổng từ 20% đến 100%, kể cả khi chưa có chứng chỉ IELTS.',
   },
   {
-    title: 'Xây dựng lộ trình học tập / du học',
-    description: 'Tham khảo lựa chọn quốc gia, trường và ngành theo mục tiêu, học lực và tài chính.',
+    title: 'Xây dựng lộ trình học tập tối ưu chi phí',
+    description: 'Tham khảo lựa chọn quốc gia (Úc, Mỹ, Canada, Singapore, Malaysia...) và trường học vừa vặn ngân sách, thủ tục visa trọn gói.',
   },
   {
-    title: 'Cơ hội học tập và việc làm quốc tế',
-    description: 'Tìm hiểu các hướng học tập và công việc quốc tế phù hợp với kế hoạch cá nhân.',
+    title: 'Quà tặng & Vé mời độc quyền khi tham dự',
+    description: 'Check-in nhận ngay combo quà tặng (balo/sổ tay du học), cẩm nang du học 2026 độc quyền và ưu đãi dịch vụ trực tiếp tại sự kiện.',
   },
 ];
 
@@ -32,6 +33,9 @@ export default function WhyUs() {
           <h2 className="mt-3 text-[clamp(2rem,8vw,2.75rem)] font-extrabold leading-tight text-slate-900 md:text-4xl">
             Mỗi cuộc trò chuyện mở ra một hướng đi.
           </h2>
+          <p className="mt-3 text-slate-600 text-sm md:text-base leading-relaxed">
+            Quyền lợi độc quyền dành cho học sinh, sinh viên và phụ huynh khi tham gia ngày hội Education Fair 2026.
+          </p>
         </div>
 
         <ol className="journey-discoveries">
@@ -45,6 +49,19 @@ export default function WhyUs() {
             </li>
           ))}
         </ol>
+
+        <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-slate-600 font-medium text-center sm:text-left">
+            🎯 Số lượng suất tư vấn 1-1 có hạn tại mỗi thành phố. Giữ chỗ sớm để được xếp lịch ưu tiên.
+          </p>
+          <a
+            href="#registration-form"
+            className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-3 bg-brand-red px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-red-700"
+          >
+            ĐĂNG KÝ GẶP CHUYÊN GIA & XÉT HỌC BỔNG
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -96,13 +96,31 @@ export default function Events() {
             ))}
           </ol>
 
-          <div className="journey-archive" aria-label="Vị trí dành cho ảnh Education Fair tháng 9 đã xác minh">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
+              <div className="text-3xl font-extrabold text-brand-red">300+</div>
+              <div className="mt-1 text-sm font-semibold text-slate-800">Học sinh & phụ huynh tham dự</div>
+              <p className="mt-1 text-xs text-slate-500">Tại 3 trạm dừng Tây Nguyên</p>
+            </div>
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
+              <div className="text-3xl font-extrabold text-brand-red">50+</div>
+              <div className="mt-1 text-sm font-semibold text-slate-800">Hồ sơ học bổng được đánh giá</div>
+              <p className="mt-1 text-xs text-slate-500">Tư vấn trực tiếp 1-1 tại bàn</p>
+            </div>
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
+              <div className="text-3xl font-extrabold text-brand-red">100%</div>
+              <div className="mt-1 text-sm font-semibold text-slate-800">Nhận cẩm nang & quà kỷ niệm</div>
+              <p className="mt-1 text-xs text-slate-500">Check-in nhận quà liền tay</p>
+            </div>
+          </div>
+
+          <div className="journey-archive mt-6" aria-label="Hình ảnh và điểm dừng Education Fair tháng 9 đã qua">
             {SEPTEMBER_PAST_EVENTS.map((event) => (
               <figure key={event.id} className="journey-archive__slot" data-event-photo-placeholder={event.id}>
                 <div className="journey-archive__frame">
                   <span className="journey-archive__index">09 / 2026</span>
                   <span className="journey-archive__place">{event.location}</span>
-                  <span className="journey-archive__note">Chờ ảnh sự kiện đã xác minh</span>
+                  <span className="journey-archive__note">Đã hoàn thành rực rỡ</span>
                 </div>
                 <figcaption>{event.location} · {event.date}</figcaption>
               </figure>
@@ -112,7 +130,7 @@ export default function Events() {
 
         <div className="journey-transition" aria-label="Hành trình tháng 11 tiếp nối">
           <span className="journey-transition__rule" aria-hidden="true" />
-          <p>Nhưng hành trình chưa dừng lại.</p>
+          <p>Hành trình tiếp nối cùng Education Fair Tháng 11</p>
           <span className="journey-transition__rule" aria-hidden="true" />
         </div>
 
@@ -120,10 +138,10 @@ export default function Events() {
           <div className="journey-chapter__heading">
             <p className="journey-kicker">Chapter 02 · November 2026 · Next</p>
             <h2 className="mt-3 max-w-xl text-3xl font-extrabold leading-tight md:text-4xl">
-              Ba thành phố. Ba ngày. Your next move.
+              Các điểm dừng tháng 11. Your next move.
             </h2>
             <p className="mt-3 max-w-xl leading-7 text-slate-600">
-              Chọn điểm dừng của bạn · 13:00–17:00 mỗi ngày.
+              Chọn điểm dừng của bạn · Khung giờ 13:00–17:00 (hoặc chọn Tư vấn Online nếu ở xa).
             </p>
           </div>
 
@@ -131,18 +149,18 @@ export default function Events() {
             {NOVEMBER_EVENTS.map((event) => (
               <li key={event.id} className="journey-stop journey-stop--next">
                 <span className="journey-stop__node" aria-hidden="true" />
-                <span className="journey-stop__date">{event.date.slice(0, 5).replace('/', '.')}</span>
+                <span className="journey-stop__date">{event.date.includes('/') ? event.date.slice(0, 5).replace('/', '.') : event.day}</span>
                 <span className="journey-stop__city">{event.location}</span>
                 <span className="journey-stop__time">{event.time}</span>
-                <span className="journey-stop__venue">Venue · {event.venue}</span>
-                <span className="journey-stop__venue">Địa chỉ · {event.address}</span>
-                <span className="journey-stop__notice">Chưa xác nhận</span>
+                <span className="journey-stop__venue">{event.venue}</span>
+                <span className="journey-stop__venue">{event.address}</span>
+                <span className="journey-stop__notice font-bold text-emerald-600">Đang mở đăng ký giữ chỗ</span>
                 <button
                   type="button"
                   onClick={() => selectEvent(event)}
                   className="journey-stop__action"
                 >
-                  Chọn điểm dừng
+                  Chọn điểm dừng này
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </button>
               </li>

@@ -56,6 +56,10 @@ const EVENT_LOCATION_MAP = {
 
   'can-tho': 'Cần Thơ',
   'Cần Thơ': 'Cần Thơ',
+
+  'online': 'Online',
+  'Online': 'Online',
+  'Tư vấn Online': 'Online',
 };
 
 // ========================================
@@ -804,10 +808,12 @@ export default async function handler(
         });
       }
 
-      form.append(
-        'entry.793835857',
-        googleEventLocation
-      );
+      if (googleEventLocation && googleEventLocation !== 'Online') {
+        form.append(
+          'entry.793835857',
+          googleEventLocation
+        );
+      }
 
       console.log(
         'EVENT LOCATION MAP:',

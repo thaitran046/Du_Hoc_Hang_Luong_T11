@@ -4,6 +4,7 @@ import Hero from '../components/hero.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import WhyUs from '../components/WhyUs.jsx';
 import Audience from '../components/Audience.jsx';
+import CareerOrientation from '../components/CareerOrientation.jsx';
 import Events from '../components/Events.jsx';
 import FAQ from '../components/FAQ.jsx';
 import BottomCTA from '../components/BottomCTA.jsx';
@@ -26,6 +27,7 @@ export default function HomePage() {
         <Events />
         <WhyUs />
         <Audience />
+        <CareerOrientation />
 
         <section className="journey-registration scroll-mt-20 bg-slate-900 pb-14 pt-8 text-white md:pb-20 md:pt-10" aria-labelledby="registration-title">
           <div className="mx-auto grid max-w-7xl gap-9 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16 lg:px-8">

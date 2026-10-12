@@ -607,10 +607,10 @@ export default function LeadForm({
           Education Fair 2026 · đăng ký miễn phí
         </p>
         <h3 className="mt-2 text-xl font-bold leading-tight md:text-2xl">
-          Giữ suất tham dự
+          Đăng ký giữ suất & Nhận cẩm nang học bổng
         </h3>
         <p className="mt-2 text-sm leading-6 text-slate-200">
-          Chọn thành phố và chia sẻ nhu cầu để nhận tư vấn cá nhân hóa 1-1.
+          Chọn điểm dừng (hoặc Online) để nhận vé mời chính thức và bộ Cẩm nang Du học 2026 (PDF).
         </p>
         <div className="mt-5" aria-label={`Bước ${step} trên 2`}>
           <p className="mb-2 text-xs font-semibold text-slate-300">BƯỚC {step} / 2</p>
@@ -950,7 +950,7 @@ export default function LeadForm({
                       >
                         {event.location}
                         {' – '}
-                        {event.date} (venue đang cập nhật)
+                        {event.date} ({event.id === 'online' ? 'Google Meet / Zalo' : 'Khu vực trung tâm'})
                       </option>
                     )
                   )}
@@ -969,12 +969,12 @@ export default function LeadForm({
                         </p>
                       </div>
                       <p className="font-bold tabular-nums text-slate-800">
-                        {selectedEvent.date} · {selectedEvent.time}
+                        {selectedEvent.date} {selectedEvent.time ? `· ${selectedEvent.time}` : ''}
                       </p>
                     </div>
                     <div className="mt-4 grid gap-2 text-xs leading-5 text-slate-600 sm:grid-cols-2">
-                      <p>Venue chưa xác nhận: {selectedEvent.venue}</p>
-                      <p>Địa chỉ chưa xác nhận: {selectedEvent.address}</p>
+                      <p className="font-medium text-slate-800">📍 {selectedEvent.venue}</p>
+                      <p className="text-slate-500">✉️ {selectedEvent.address}</p>
                     </div>
                   </div>
                 )}
@@ -1039,12 +1039,12 @@ export default function LeadForm({
                   {isSubmitting ? (
                     <>
                       <Send className="w-5 h-5 mr-2 animate-pulse" />
-                      ĐANG GỬI...
+                      ĐANG XỬ LÝ...
                     </>
                   ) : (
                     <>
-                      <span className="sm:hidden">GIỮ SUẤT MIỄN PHÍ</span>
-                      <span className="hidden sm:inline">ĐĂNG KÝ GIỮ SUẤT MIỄN PHÍ</span>
+                      <span className="sm:hidden">GIỮ SUẤT & NHẬN CẨM NANG</span>
+                      <span className="hidden sm:inline">ĐĂNG KÝ GIỮ SUẤT & NHẬN CẨM NANG HỌC BỔNG</span>
                     </>
                   )}
                 </button>
@@ -1052,7 +1052,7 @@ export default function LeadForm({
 
               {/* PRIVACY */}
               <p className="text-xs leading-5 text-slate-500">
-                Thông tin của bạn được bảo mật và chỉ sử dụng cho mục đích tư vấn và xác nhận tham gia sự kiện.
+                🔒 Thông tin được bảo mật 100%. Vé mời và Cẩm nang Du học 2026 sẽ được gửi qua Zalo/Email của bạn trước ngày diễn ra sự kiện.
               </p>
             </motion.div>
           )}

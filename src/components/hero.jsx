@@ -17,13 +17,14 @@ export default function Hero() {
             Hướng nghiệp <span className="text-red-300">/</span> Du học <span className="text-red-300">/</span> Việc làm quốc tế
           </p>
           <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
-            Một hành trình gặp gỡ, khám phá lựa chọn học tập và nghề nghiệp cho học sinh, sinh viên và phụ huynh.
+            Một hành trình gặp gỡ, khám phá lựa chọn học tập và nghề nghiệp cho học sinh, sinh viên và phụ huynh. Tặng ngay Cẩm nang Săn học bổng Du học 2026 (PDF) khi đăng ký giữ chỗ.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/20 pt-4 text-xs font-semibold text-slate-200 sm:text-sm">
             <span>Tư vấn cá nhân hóa 1-1</span>
             <span>Định hướng nghề nghiệp</span>
-            <span>Đánh giá hồ sơ học bổng</span>
+            <span>Xét học bổng tại chỗ (GPA 6.5+)</span>
+            <span>Quà tặng check-in độc quyền</span>
           </div>
 
           <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-5">
@@ -42,21 +43,21 @@ export default function Hero() {
 
         <div className="fair-cover__route min-w-0 border-y border-white/25 py-4" aria-label="Ba thành phố, ba ngày trong tháng 11 năm 2026">
           <div className="mb-2 flex items-baseline justify-between gap-4">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-red-300">3 thành phố · 3 ngày</p>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-red-300">Điểm dừng tháng 11</p>
             <p className="text-xs font-bold uppercase tracking-wide text-slate-300">Nov 2026</p>
           </div>
           <ol className="fair-cover__stops">
             {NOVEMBER_EVENTS.map((event) => (
               <li key={event.id} className="fair-cover__stop">
                 <a href="#events" className="fair-cover__stop-link">
-                  <span className="fair-cover__date">{event.day}<span>.11</span></span>
+                  <span className="fair-cover__date">{event.day}<span>{event.id === 'online' ? '' : '.11'}</span></span>
                   <span className="fair-cover__city">{event.location}</span>
                 </a>
               </li>
             ))}
           </ol>
-          <p className="mt-3 text-xs leading-5 text-slate-400">
-            Venue và địa chỉ: Đang cập nhật, chưa xác nhận.
+          <p className="mt-3 text-xs leading-5 text-slate-300">
+            📍 Địa chỉ trung tâm & vé mời chính thức sẽ gửi riêng qua Zalo/SMS sau khi đăng ký.
           </p>
         </div>
       </div>

@@ -50,15 +50,22 @@ export default function Hero() {
             {NOVEMBER_EVENTS.map((event) => (
               <li key={event.id} className="fair-cover__stop">
                 <a href="#events" className="fair-cover__stop-link">
-                  <span className="fair-cover__date">{event.day}<span>{event.id === 'online' ? '' : '.11'}</span></span>
+                  <span className="fair-cover__date">{event.day}<span>.11</span></span>
                   <span className="fair-cover__city">{event.location}</span>
                 </a>
               </li>
             ))}
           </ol>
-          <p className="mt-3 text-xs leading-5 text-slate-300">
-            📍 Địa chỉ trung tâm & vé mời chính thức sẽ gửi riêng qua Zalo/SMS sau khi đăng ký.
-          </p>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pt-3 text-xs text-slate-300">
+            <span>📍 Địa chỉ chi tiết & vé mời gửi qua Zalo/SMS sau khi giữ chỗ.</span>
+            <a
+              href="#registration-form"
+              className="inline-flex items-center gap-1 font-semibold text-red-300 transition-colors hover:text-white"
+            >
+              <span>Ở xa? Đăng ký Tư vấn Online 1-1</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

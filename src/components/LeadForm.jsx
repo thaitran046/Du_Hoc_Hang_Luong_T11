@@ -26,7 +26,7 @@ import {
   getAttribution,
   track,
 } from '../lib/tracking';
-import { NOVEMBER_EVENTS } from '../lib/fair-events';
+import { ALL_REGISTRATION_EVENTS } from '../lib/fair-events';
 
 // ======================================================
 // ĐỐI TƯỢNG
@@ -247,7 +247,7 @@ export default function LeadForm({
 
   // Tìm event theo ID
   const findEvent = (eventId) => {
-    return NOVEMBER_EVENTS.find(
+    return ALL_REGISTRATION_EVENTS.find(
       (event) =>
         event.id === eventId
     );
@@ -597,7 +597,7 @@ export default function LeadForm({
     <div
       id="registration-form"
       className={cn(
-        'scroll-mt-24 overflow-hidden border border-slate-200 bg-white shadow-sm',
+        'scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xl',
         className
       )}
     >
@@ -938,7 +938,7 @@ export default function LeadForm({
                   <option value="">
                     Chọn địa điểm tham gia
                   </option>
-                  {NOVEMBER_EVENTS.map(
+                  {ALL_REGISTRATION_EVENTS.map(
                     (event) => (
                       <option
                         key={

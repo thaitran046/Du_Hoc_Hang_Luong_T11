@@ -32,17 +32,23 @@ export const NOVEMBER_EVENTS = [
     address: 'Địa chỉ chi tiết & vé mời gửi qua Zalo/SMS sau khi giữ chỗ',
     isTemporary: false,
   },
-  {
-    id: 'online',
-    location: 'Tư vấn Online',
-    date: 'Linh hoạt',
-    day: 'Online',
-    month: 'TOÀN QUỐC',
-    time: 'Theo lịch hẹn',
-    venue: 'Google Meet / Video Call Zalo (1-1)',
-    address: 'Dành riêng cho học sinh & phụ huynh ở xa các điểm offline',
-    isTemporary: false,
-  },
+];
+
+export const ONLINE_EVENT = {
+  id: 'online',
+  location: 'Tư vấn Online',
+  date: 'Linh hoạt',
+  day: 'Online',
+  month: 'TOÀN QUỐC',
+  time: 'Theo lịch hẹn',
+  venue: 'Google Meet / Video Call Zalo (1-1)',
+  address: 'Dành riêng cho học sinh & phụ huynh ở xa các điểm offline',
+  isTemporary: false,
+};
+
+export const ALL_REGISTRATION_EVENTS = [
+  ...NOVEMBER_EVENTS,
+  ONLINE_EVENT,
 ];
 
 export const SEPTEMBER_PAST_EVENTS = [

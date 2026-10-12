@@ -3,7 +3,6 @@ import Nav from '../components/nav.jsx';
 import Hero from '../components/hero.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import WhyUs from '../components/WhyUs.jsx';
-import Audience from '../components/Audience.jsx';
 import CareerOrientation from '../components/CareerOrientation.jsx';
 import Events from '../components/Events.jsx';
 import FAQ from '../components/FAQ.jsx';
@@ -26,7 +25,6 @@ export default function HomePage() {
         <Hero />
         <Events />
         <WhyUs />
-        <Audience />
         <CareerOrientation />
 
         <section className="journey-registration scroll-mt-20 bg-slate-900 pb-14 pt-8 text-white md:pb-20 md:pt-10" aria-labelledby="registration-title">

@@ -19,7 +19,7 @@ export default function CareerOrientation() {
         </div>
         <div className="border-t sm:border-t-0 sm:border-l border-white/20 pt-6 sm:pt-0 sm:pl-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
           <a
-            href="https://thaitran046.github.io/tracnghiem-holland/"
+            href="https://tracnghiem.duhochangluong.edu.vn/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-12 items-center justify-center gap-2 bg-white px-5 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100"

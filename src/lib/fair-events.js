@@ -161,44 +161,44 @@ export const SEPTEMBER_PAST_EVENTS = [
     summary: 'Trạm dừng khép lại ấn tượng tại Nesta Valley Hotel, Đà Lạt',
     photos: [
       {
-        url: '/events/da-lat/01-dien-gia-thuyet-trinh-san-khau.jpg',
-        title: 'Diễn giả thuyết trình trên sân khấu hội trường',
-        caption: 'Diễn giả Hằng Lương chia sẻ bức tranh toàn cảnh về du học và việc làm toàn cầu',
+        url: '/events/da-lat/01-hang-dai-hoc-sinh-xep-hang.jpg',
+        title: 'Hàng dài học sinh xếp hàng tham dự sự kiện',
+        caption: 'Đông đảo học sinh THPT tại Đà Lạt xếp hàng nhận cẩm nang và quà tặng tại Nesta Valley Hotel',
       },
       {
-        url: '/events/da-lat/02-toan-canh-hoi-truong-nesta-valley.jpg',
+        url: '/events/da-lat/02-dien-gia-thuyet-trinh-san-khau.jpg',
+        title: 'Diễn giả thuyết trình trên sân khấu',
+        caption: 'Diễn giả Hằng Lương chia sẻ bức tranh toàn cảnh về định hướng du học và học bổng quốc tế',
+      },
+      {
+        url: '/events/da-lat/03-chuyen-gia-tu-van-huong-nghiep-hoc-sinh.jpg',
+        title: 'Chuyên gia Hằng Lương tư vấn hướng nghiệp 1-1',
+        caption: 'Trực tiếp phân tích năng lực, sở thích và giải đáp lộ trình du học cho từng bạn học sinh',
+      },
+      {
+        url: '/events/da-lat/04-huong-dan-hoc-sinh-xem-ket-qua-test.jpg',
+        title: 'Hướng dẫn học sinh đọc kết quả định hướng nghề',
+        caption: 'Chuyên viên Hằng Lương cùng học sinh phân tích kết quả bài test định hướng nghề nghiệp',
+      },
+      {
+        url: '/events/da-lat/05-tu-van-ho-so-hoc-sinh-tai-ban.jpg',
+        title: 'Tư vấn chuyên sâu hồ sơ & học bổng tại bàn',
+        caption: 'Bàn tư vấn 1-1 giải đáp chi tiết về điều kiện nhập học, học phí và các mức học bổng',
+      },
+      {
+        url: '/events/da-lat/06-tu-van-lo-trinh-tai-chinh-phu-huynh.jpg',
+        title: 'Tư vấn giải pháp tài chính cho phụ huynh',
+        caption: 'Chuyên gia hỗ trợ phụ huynh kế hoạch tài chính và thủ tục visa du học minh bạch',
+      },
+      {
+        url: '/events/da-lat/07-hoc-sinh-gap-go-dai-dien-truong.jpg',
+        title: 'Học sinh trao đổi trực tiếp cùng đại diện trường',
+        caption: 'Gặp gỡ trực tiếp đại diện tuyển sinh các trường quốc tế để nộp hồ sơ sớm',
+      },
+      {
+        url: '/events/da-lat/08-toan-canh-hoi-truong-dong-kin.jpg',
         title: 'Toàn cảnh hội trường Nesta Valley Hotel đông kín',
-        caption: 'Khán phòng chật kín chỗ với sự tham gia của đại diện trường, phụ huynh và học sinh',
-      },
-      {
-        url: '/events/da-lat/03-khong-gian-don-tiep-hoc-sinh.jpg',
-        title: 'Bàn thông tin & đón tiếp chu đáo',
-        caption: 'Không gian tổ chức sang trọng, chuyên nghiệp tại trung tâm TP. Đà Lạt',
-      },
-      {
-        url: '/events/da-lat/04-dai-dien-truong-quoc-te-tu-van.jpg',
-        title: 'Gặp gỡ trực tiếp đại diện trường quốc tế',
-        caption: 'Trao đổi 1-1 với đại diện trường Excelsia và các trường đại học Úc, Singapore, Mỹ',
-      },
-      {
-        url: '/events/da-lat/05-tu-van-chuyen-sau-hoc-bong-visa.jpg',
-        title: 'Tư vấn chuyên sâu hồ sơ học bổng & visa',
-        caption: 'Định hướng lộ trình du học cá nhân hóa theo học lực và điều kiện gia đình',
-      },
-      {
-        url: '/events/da-lat/06-phu-huynh-tim-hieu-dinh-huong.jpg',
-        title: 'Phụ huynh tìm hiểu cơ hội định cư & việc làm',
-        caption: 'Cùng chuyên gia tháo gỡ băn khoăn về chính sách ở lại làm việc sau tốt nghiệp',
-      },
-      {
-        url: '/events/da-lat/07-hoc-sinh-trao-doi-truc-tiep.jpg',
-        title: 'Học sinh hào hứng nhận tài liệu & quà tặng',
-        caption: 'Không khí tương tác sôi nổi giữa học sinh và đội ngũ tư vấn viên Hằng Lương',
-      },
-      {
-        url: '/events/da-lat/08-chup-anh-luu-niem-da-lat.jpg',
-        title: 'Kỷ niệm khép lại trọn vẹn Education Fair T9',
-        caption: 'Ban tổ chức, đại diện các trường quốc tế và phụ huynh, học sinh chụp ảnh lưu niệm',
+        caption: 'Khán phòng chật kín chỗ phụ huynh, học sinh và đại biểu đại diện các trường quốc tế',
       },
     ],
   },

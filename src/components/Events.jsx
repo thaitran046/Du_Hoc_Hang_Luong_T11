@@ -385,15 +385,17 @@ export default function Events() {
                       key={idx}
                       type="button"
                       onClick={() => setCurrentPhotoIdx(idx)}
-                      className={`h-11 w-11 shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+                      className={`h-12 w-12 shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
                         idx === currentPhotoIdx
-                          ? 'border-brand-red scale-105'
-                          : 'border-white/20 opacity-50 hover:opacity-100'
+                          ? 'border-brand-red scale-105 shadow-md'
+                          : 'border-white/20 opacity-60 hover:opacity-100'
                       }`}
                     >
-                      <div className="h-full w-full bg-slate-800 flex items-center justify-center text-[10px] font-bold text-white">
-                        {idx + 1}
-                      </div>
+                      <img
+                        src={photo.url}
+                        alt={photo.title || `Thumbnail ${idx + 1}`}
+                        className="h-full w-full object-cover"
+                      />
                     </button>
                   ))}
                 </div>

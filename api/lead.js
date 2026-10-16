@@ -13,6 +13,22 @@ const VALID_TIMEFRAMES = [
   'Chưa quyết định',
 ];
 
+const COUNTRY_MAP = {
+  Australia: 'Australia',
+  Úc: 'Australia',
+  UK: 'UK',
+  Anh: 'UK',
+  USA: 'USA',
+  Mỹ: 'USA',
+  Canada: 'Canada',
+  'New Zealand': 'New Zealand',
+  Singapore: 'Singapore',
+  Euro: 'Euro',
+  'Châu Âu': 'Euro',
+  Khác: 'Khác',
+  'Chưa quyết định': 'Chưa quyết định',
+};
+
 const NEED_MAP = {
   'Chọn ngành': 'Chọn Ngành',
   'Chọn Ngành': 'Chọn Ngành',
@@ -22,7 +38,8 @@ const NEED_MAP = {
   'Học bổng': 'Học Bổng',
   'Học Bổng': 'Học Bổng',
 
-  'Hồ sơ du học': 'Hồ sơ du học',
+  'Hồ sơ du học': 'Hồ sơ nhập học',
+  'Hồ sơ nhập học': 'Hồ sơ nhập học',
 
   Visa: 'Visa',
 
@@ -30,7 +47,8 @@ const NEED_MAP = {
 
   'Hướng nghiệp': 'Hướng nghiệp',
 
-  'Lộ trình du học': 'Lộ trình du học',
+  'Lộ trình du học': 'Lộ trình học',
+  'Lộ trình học': 'Lộ trình học',
 };
 
 // ========================================
@@ -754,9 +772,10 @@ export default async function handler(
     );
 
     if (country) {
+      const googleCountry = COUNTRY_MAP[country.trim()] || country.trim();
       form.append(
         'entry.1005224062',
-        country
+        googleCountry
       );
     }
 
@@ -794,21 +813,9 @@ export default async function handler(
           eventLocation.trim()
         ];
 
-      if (!googleEventLocation) {
-        console.error(
-          'UNKNOWN EVENT LOCATION:',
-          eventLocation
-        );
-
-        return res.status(400).json({
-          success: false,
-
-          message:
-            `Địa điểm "${eventLocation}" chưa được map với Google Form.`,
-        });
-      }
-
-      if (googleEventLocation && googleEventLocation !== 'Online') {
+      // Google Form accepts specific options: 'Dak Nong', 'Bao Loc', 'Đà Lạt'
+      const ALLOWED_GOOGLE_LOCATIONS = ['Dak Nong', 'Bao Loc', 'Đà Lạt'];
+      if (googleEventLocation && ALLOWED_GOOGLE_LOCATIONS.includes(googleEventLocation)) {
         form.append(
           'entry.793835857',
           googleEventLocation
@@ -819,7 +826,7 @@ export default async function handler(
         'EVENT LOCATION MAP:',
         eventLocation,
         '=>',
-        googleEventLocation
+        googleEventLocation || 'Offline/Online November'
       );
     }
 

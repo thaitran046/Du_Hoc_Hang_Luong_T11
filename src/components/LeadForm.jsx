@@ -597,7 +597,7 @@ export default function LeadForm({
     <div
       id="registration-form"
       className={cn(
-        'scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xl',
+        'scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-slate-900 shadow-xl',
         className
       )}
     >
@@ -630,7 +630,7 @@ export default function LeadForm({
         onSubmit={handleSubmit}
         onFocusCapture={handleFormStart}
         onClickCapture={handleFormStart}
-        className="space-y-5 p-5 sm:p-7"
+        className="space-y-5 p-5 sm:p-7 text-slate-900"
       >
         <AnimatePresence
           mode="wait"
@@ -783,7 +783,7 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="min-h-12 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 font-medium placeholder:text-slate-400 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
                   />
                 </div>
                 <div>
@@ -806,7 +806,7 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="min-h-12 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 font-medium placeholder:text-slate-400 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
                   />
                 </div>
               </div>
@@ -832,7 +832,7 @@ export default function LeadForm({
                       })
                     )
                   }
-                  className="min-h-12 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
+                  className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 font-medium placeholder:text-slate-400 outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100"
                 />
               </div>
 
@@ -855,7 +855,7 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-red-100"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 font-medium focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-red-100"
                   >
                     <option value="">
                       Chọn quốc gia
@@ -893,7 +893,7 @@ export default function LeadForm({
                         })
                       )
                     }
-                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-red-100"
+                    className="min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 font-medium focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-red-100"
                   >
                     <option value="">
                       Chọn thời gian
@@ -929,10 +929,10 @@ export default function LeadForm({
                     )
                   }
                   className={cn(
-                    'min-h-12 w-full rounded-lg border bg-white px-4 py-3 outline-none transition-colors focus:ring-2 focus:ring-red-100',
+                    'min-h-12 w-full rounded-lg border bg-white px-4 py-3 text-slate-900 font-medium outline-none transition-colors focus:ring-2 focus:ring-red-100',
                     selectedEvent
                       ? 'border-brand-red ring-1 ring-red-100'
-                      : 'border-slate-200 focus:border-brand-red'
+                      : 'border-slate-300 focus:border-brand-red'
                   )}
                 >
                   <option value="">

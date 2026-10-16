@@ -39,6 +39,15 @@ body {
   overflow-x: clip;
 }
 
+input, select, textarea {
+  color: #0f172a !important;
+  background-color: #ffffff;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
 .bg-brand-gradient {
   background: linear-gradient(135deg, #e31b23 0%, #a80f18 100%);
 }

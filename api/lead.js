@@ -1,5 +1,5 @@
 const GOOGLE_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSfWKMT14OkabcCipsolbeeQ28sEMuJpr-8BGOvzzFLjmSD1Uw/formResponse';
+  'https://docs.google.com/forms/d/e/1FAIpQLSfqMMVGGTLW0U8dtg4DeQEPyKHKqjacGHtPmdkondXITyn1Ug/formResponse';
 
 // ========================================
 // GOOGLE FORM VALUES
@@ -52,32 +52,23 @@ const NEED_MAP = {
 };
 
 // ========================================
-// MAP ĐỊA ĐIỂM WEBSITE -> GOOGLE FORM
+// MAP ĐỊA ĐIỂM WEBSITE -> GOOGLE FORM THÁNG 11
 // ========================================
 
 const EVENT_LOCATION_MAP = {
-  'Đắk Nông': 'Dak Nong',
-  'Dak Nong': 'Dak Nong',
+  'can-tho': 'Cần Thơ 06/11/2026 (Khu vực trung tâm)',
+  'Cần Thơ': 'Cần Thơ 06/11/2026 (Khu vực trung tâm)',
 
-  'Bảo Lộc': 'Bao Loc',
-  'TP. Bảo Lộc': 'Bao Loc',
-  'Bao Loc': 'Bao Loc',
+  'tp-hcm': 'Hồ Chí Minh 07/11/2026 (Khu vực trung tâm)',
+  'TP.HCM': 'Hồ Chí Minh 07/11/2026 (Khu vực trung tâm)',
+  'Hồ Chí Minh': 'Hồ Chí Minh 07/11/2026 (Khu vực trung tâm)',
 
-  'Đà Lạt': 'Đà Lạt',
-  'TP. Đà Lạt': 'Đà Lạt',
+  'vung-tau': 'Vũng Tàu 08/11/2026 (Khu vực trung tâm)',
+  'Vũng Tàu': 'Vũng Tàu 08/11/2026 (Khu vực trung tâm)',
 
-  'vung-tau': 'Vũng Tàu',
-  'Vũng Tàu': 'Vũng Tàu',
-
-  'tp-hcm': 'TP.HCM',
-  'TP.HCM': 'TP.HCM',
-
-  'can-tho': 'Cần Thơ',
-  'Cần Thơ': 'Cần Thơ',
-
-  'online': 'Online',
-  'Online': 'Online',
-  'Tư vấn Online': 'Online',
+  'online': 'Tư vấn Online - Linh hoạt (Google Meet / Zalo)',
+  'Online': 'Tư vấn Online - Linh hoạt (Google Meet / Zalo)',
+  'Tư vấn Online': 'Tư vấn Online - Linh hoạt (Google Meet / Zalo)',
 };
 
 // ========================================
@@ -813,8 +804,13 @@ export default async function handler(
           eventLocation.trim()
         ];
 
-      // Google Form accepts specific options: 'Dak Nong', 'Bao Loc', 'Đà Lạt'
-      const ALLOWED_GOOGLE_LOCATIONS = ['Dak Nong', 'Bao Loc', 'Đà Lạt'];
+      // Google Form Tháng 11 options
+      const ALLOWED_GOOGLE_LOCATIONS = [
+        'Cần Thơ 06/11/2026 (Khu vực trung tâm)',
+        'Hồ Chí Minh 07/11/2026 (Khu vực trung tâm)',
+        'Vũng Tàu 08/11/2026 (Khu vực trung tâm)',
+        'Tư vấn Online - Linh hoạt (Google Meet / Zalo)',
+      ];
       if (googleEventLocation && ALLOWED_GOOGLE_LOCATIONS.includes(googleEventLocation)) {
         form.append(
           'entry.793835857',
@@ -826,7 +822,7 @@ export default async function handler(
         'EVENT LOCATION MAP:',
         eventLocation,
         '=>',
-        googleEventLocation || 'Offline/Online November'
+        googleEventLocation || 'Unknown'
       );
     }
 

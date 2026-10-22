@@ -1002,6 +1002,44 @@ export default async function handler(
     }
 
     // =====================================
+    // GỬI THÔNG BÁO TELEGRAM TỨC THÌ
+    // =====================================
+
+    try {
+      const tgToken = process.env.TELEGRAM_BOT_TOKEN || '8921487119:AAHY5Gl9XygVDBczLktVONhK68rM1knzwsQ';
+      const tgChatId = process.env.TELEGRAM_CHAT_ID || '-4991751416';
+      const needsStr = Array.isArray(needs) && needs.length ? needs.join(', ') : (needs || '-');
+      const nowStr = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+
+      const tgMessage =
+        '🔔 <b>CÓ KHÁCH ĐĂNG KÝ EDUCATION FAIR MỚI!</b>\n' +
+        '━━━━━━━━━━━━━━━━━━\n' +
+        `👤 <b>Họ tên:</b> ${fullName.trim()}\n` +
+        `📞 <b>Điện thoại:</b> <code>${phone.trim()}</code> <i>(chạm để copy)</i>\n` +
+        `📧 <b>Email:</b> ${email.trim()}\n` +
+        `📍 <b>Điểm tham gia:</b> <b>${eventLocation || 'Tư vấn Online'}</b>` + (eventVenue ? ` (${eventVenue})` : '') + '\n' +
+        (eventDate ? `📅 <b>Thời gian:</b> ${eventDate} | ${eventTime}\n` : '') +
+        `🌍 <b>Nước quan tâm:</b> ${country || '-'}\n` +
+        `🎯 <b>Nhu cầu:</b> ${needsStr}\n` +
+        `🎓 <b>Chương trình:</b> ${program || '-'} (${role || '-'})\n` +
+        `⏰ <b>Thời gian gửi:</b> ${nowStr}\n` +
+        '━━━━━━━━━━━━━━━━━━\n' +
+        '👉 <i>Tư vấn viên liên hệ hỗ trợ khách ngay nhé!</i>';
+
+      await fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: tgChatId,
+          text: tgMessage,
+          parse_mode: 'HTML',
+        }),
+      });
+    } catch (tgErr) {
+      console.error('TELEGRAM NOTIFY ERROR:', tgErr);
+    }
+
+    // =====================================
     // SUCCESS
     // =====================================
 
